@@ -16,8 +16,7 @@ public class StreamExercises {
     private static void zad2() {
         List<Integer> number = Arrays.asList(1, 25, 30, 31, 23, 15, 16, 3, 5, 30);
         List<Integer> lessThanTenList = number.stream()
-                .filter((i) -> i<10)
-                //import java.util.stream.Collectors;
+                .filter(StreamExercises::isLessThanTen)
                 .collect(Collectors.toList());
         lessThanTenList.forEach(System.out::println);
     }
@@ -31,7 +30,7 @@ public class StreamExercises {
         number.stream().forEach(System.out::println);
         System.out.println();
 
-        number.stream().filter((i) -> i<10).forEach(System.out::println);
+        number.stream().filter(StreamExercises::isLessThanTen).forEach(System.out::println);
         System.out.println();
 
         number.stream().filter((Integer i) -> {
