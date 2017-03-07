@@ -2,6 +2,7 @@ package stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Adrian on 2017-03-07.
@@ -9,7 +10,20 @@ import java.util.List;
 public class StreamExercises {
 
     public static void main(String[] args) {
-        zad1();
+        zad2();
+    }
+
+    private static void zad2() {
+        List<Integer> number = Arrays.asList(1, 25, 30, 31, 23, 15, 16, 3, 5, 30);
+        List<Integer> lessThanTenList = number.stream()
+                .filter((i) -> i<10)
+                //import java.util.stream.Collectors;
+                .collect(Collectors.toList());
+        lessThanTenList.forEach(System.out::println);
+    }
+
+    public static boolean isLessThanTen(int i) {
+        return i < 10;
     }
 
     private static void zad1() {
