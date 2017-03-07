@@ -11,13 +11,14 @@ public class FunctionExample {
 
         System.out.println("sum("+5+")=" + sum(5,FunctionExample::generateSeries));
         System.out.println("sum("+5+")=" + sum(5,(i) -> 2*i+5));
+        System.out.println("sum("+5+")=" + sum(5,(i) -> 5));
 
     }
 
-    public static int sum(int n, Function<Integer,Integer> series) {
+    public static int sum(int n, SeriesGenerator series) {
         int result = 0;
         for(int i = 0 ; i < n; i++) {
-            result += series.apply(i);
+            result += series.generate(i);
         }
         return result;
     }
