@@ -2,6 +2,7 @@ package stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
@@ -10,7 +11,20 @@ import java.util.stream.Collectors;
 public class StreamExercises {
 
     public static void main(String[] args) {
-        zad3();
+        zad4();
+    }
+
+    private static void zad4() {
+        List<Integer> numbers = Arrays.asList(1, 25, 30, 31, 23, 15, 16, 3, 5, 30);
+        int sum = numbers.stream().reduce((a,b) -> a+b).get();
+
+        // Dodatkowe przykłady
+        System.out.println(sum);
+        int max = numbers.stream().reduce(Math::max).get();
+        System.out.println(max);
+        final Random random = new Random();
+        int r = numbers.stream().reduce((a,b) -> random.nextBoolean() ? a : b).get();
+        System.out.println(r);
     }
 
     private static void zad3() {
