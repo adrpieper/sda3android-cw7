@@ -10,7 +10,19 @@ import java.util.stream.Collectors;
 public class StreamExercises {
 
     public static void main(String[] args) {
-        zad2();
+        zad3();
+    }
+
+    private static void zad3() {
+        List<Integer> numbers = Arrays.asList(1, 25, 30, 31, 23, 15, 16, 3, 5, 30);
+        numbers.stream()
+                .map(StreamExercises::isLessThanTen)
+                .forEach(System.out::println);
+
+        // Jakiś dodatkowy przykład
+        numbers.stream()
+                .map((i) -> i+1000) // do każdej liczby w strumieniu dodaje 1000
+                .forEach((b) -> System.out.println("w = " + b));
     }
 
     private static void zad2() {
